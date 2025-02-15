@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import clogo from '../../component/assesst/clogo.png';
 import { BsCart2 } from "react-icons/bs";
 
+
 import "./navbar.css";
 
 export default function Navbar() {
@@ -13,7 +14,7 @@ export default function Navbar() {
     </div>
     <div className="nav-container">
         <ul className="nav-links">
-            <li><Link to="/">Home</Link></li>
+            <li><Link to="/home">Home</Link></li>
             <li><Link to="/menu">Menu</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/contact">Contact Us</Link></li>
