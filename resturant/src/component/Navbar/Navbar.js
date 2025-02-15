@@ -62,7 +62,7 @@ export default function Navbar() {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const navLinks = [
-    { title: "Home", id: "home", path: "/home" },
+    { title: "Home", id: "home", path: "/" },
     { title: "Menu", id: "menu", path: "/menu" },
     { title: "About Us", id: "about", path: "/about-us" },
     { title: "Contact Us", id: "contact", path: "/contactus" }
