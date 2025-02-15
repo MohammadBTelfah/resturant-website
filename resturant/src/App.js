@@ -5,7 +5,6 @@ import Home from "./component/Home/Home";
 import Footer from "./component/Footer/Footer";
 import Menu from "./component/menu/Menu";
 import ContactUs from "./component/Contactus/Contactus";
-import { CartProvider } from "./component/CartContext/CartContext";
 import AboutUs from "./component/About/about-us";
 
 
@@ -13,7 +12,7 @@ import AboutUs from "./component/About/about-us";
 
 function App() {
     return (
-        <CartProvider>
+        
         <Router>
           <Navbar />
             <Routes>
@@ -27,7 +26,7 @@ function App() {
             </Routes>
             <Footer />
         </Router>
-        </CartProvider>
+    
 
     );
 }

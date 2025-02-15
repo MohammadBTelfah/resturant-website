@@ -6,7 +6,7 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { SiGoogle } from "react-icons/si";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-const StyledHeroSection = styled(Box)(({ theme }) => ({
+const StyledHeroSection = styled(Box)(() => ({
   minHeight: "100vh",
   background: "#000000",
   color: "#FFFFFF",
@@ -18,7 +18,7 @@ const StyledHeroSection = styled(Box)(({ theme }) => ({
   textAlign: "center",
 }));
 
-const StyledButton = styled(Button)(({ theme }) => ({
+const StyledButton = styled(Button)(() => ({
   backgroundColor: "#FFA500",
   color: "#FFFFFF",
   padding: "1rem 3rem",
@@ -30,7 +30,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const SliderContainer = styled(Box)(({ theme }) => ({
+const SliderContainer = styled(Box)(() => ({
   width: "100%",
   position: "relative",
   marginTop: "4rem",
@@ -40,6 +40,9 @@ const burgerImages = [
   "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
   "https://images.unsplash.com/photo-1586816001966-79b736744398",
   "https://images.unsplash.com/photo-1551615593-ef5fe247e8f7",
+  "https://www.allrecipes.com/thmb/5JVfA7MxfTUPfRerQMdF-nGKsLY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/25473-the-perfect-basic-burger-DDMFS-4x3-56eaba3833fd4a26a82755bcd0be0c54.jpg"
+  
+  
 ];
 
 const testimonials = [
@@ -70,7 +73,7 @@ const faqs = [
   },
 ];
 
-const M0TRestaurant = () => {
+function M0TRestaurant() { 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
@@ -208,14 +211,14 @@ const M0TRestaurant = () => {
         <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 2 }}>
           <FaMapMarkerAlt size={24} color="#FFA500" />
           <Typography variant="h6" sx={{ ml: 2 }}>
-            123 Burger Street, Foodie District
+          Irbid Aydoun street Al-Anduls
           </Typography>
         </Box>
         <Typography variant="body1" sx={{ color: "#CCCCCC" }}>
           Open Daily: 11:00 AM - 10:00 PM
         </Typography>
         <Typography variant="body1" sx={{ color: "#CCCCCC", mt: 1 }}>
-          Phone: (555) 123-4567
+          Phone: (+962)772572078
         </Typography>
       </Box>
     </Box>

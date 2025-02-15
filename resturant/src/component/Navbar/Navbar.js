@@ -3,7 +3,7 @@ import clogo from '../assesst/clogo.png';
 import { AppBar, Toolbar, Button, IconButton, Typography, Badge, Box, Menu, MenuItem, useMediaQuery, useTheme, Container, Drawer } from "@mui/material";
 import { styled } from "@mui/system";
 import { FaShoppingCart, FaBars } from "react-icons/fa";
-import { useCart } from "../CartContext/CartContext";
+
 
 const StyledAppBar = styled(AppBar)({
   backgroundColor: "#ffffff",
@@ -53,10 +53,10 @@ const CartDrawer = styled(Box)({
   backgroundColor: "#ffffff"
 });
 
-const RestaurantNavbar = () => {
-  const { cart } = useCart();
+export default function Navbar() {
+
   const [anchorEl, setAnchorEl] = useState(null);
-  const [cartItems, setCartItems] = useState(0);
+  const [cartItems] = useState(0);
   const [cartOpen, setCartOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -131,4 +131,4 @@ const RestaurantNavbar = () => {
   );
 };
 
-export default RestaurantNavbar;
+

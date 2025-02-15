@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import './menu.css';
-import { useCart } from "../CartContext/CartContext";
 
 export default function Menu() {
-  const { addToCart } = useCart();
 
  const [menuItems, setMenuItems] = useState([
         {
@@ -106,9 +104,7 @@ export default function Menu() {
         },
       ]);
 
-  const handleAddToCart = (item) => {
-    addToCart(item); // Call the addToCart function from CartContext
-  };
+  
 
   return (
     <>
@@ -122,7 +118,7 @@ export default function Menu() {
               <span className="price">{item.price}</span>
               <button 
                 className="add-to-cart" 
-                onClick={() => handleAddToCart(item)} // Pass the item to the handler
+                // Pass the item to the handler
               >
                 Add to Cart
               </button>
@@ -140,7 +136,7 @@ export default function Menu() {
               <span className="price">{item.price}</span>
               <button 
                 className="add-to-cart" 
-                onClick={() => handleAddToCart(item)} // Pass the item to the handler
+                // Pass the item to the handler
               >
                 Add to Cart
               </button>

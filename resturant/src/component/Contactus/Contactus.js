@@ -208,15 +208,18 @@ const ContactForm = () => {
             </Typography>
             <ContactInfo>
               <FaMapMarkerAlt size={24} />
-              <Typography color="#ffffff">123 Business Street, Suite 100, New York, NY 10001</Typography>
+              <Typography color="#ffffff">Irbid Aydoun street Al-Anduls
+</Typography>
             </ContactInfo>
             <ContactInfo>
               <FaPhone size={24} />
-              <Typography color="#ffffff">+1 (555) 123-4567</Typography>
+              <Typography color="#ffffff">+962772572078</Typography>
             </ContactInfo>
             <ContactInfo>
               <FaEnvelope size={24} />
-              <Typography color="#ffffff">contact@company.com</Typography>
+              <Typography color="#ffffff">telfahm@gmail.com
+
+</Typography>
             </ContactInfo>
 
             <Divider sx={{ my: 3 }} />
@@ -225,9 +228,24 @@ const ContactForm = () => {
               Follow Us
             </Typography>
             <Box sx={{ mt: 2 }}>
-              <SocialIcon><FaLinkedin size={24} /></SocialIcon>
-              <SocialIcon><FaTwitter size={24} /></SocialIcon>
-              <SocialIcon><FaInstagram size={24} /></SocialIcon>
+            <SocialIcon>
+  <a href="https://www.linkedin.com/in/mohammed-telfah-3ba1a7261/" target="_blank" rel="noopener noreferrer">
+    <FaLinkedin size={24} />
+  </a>
+</SocialIcon>
+
+<SocialIcon>
+  <a href="https://x.com/m7mdte" target="_blank" rel="noopener noreferrer">
+    <FaTwitter size={24} />
+  </a>
+</SocialIcon>
+
+<SocialIcon>
+  <a href="https://www.instagram.com/m0_tf/" target="_blank" rel="noopener noreferrer">
+    <FaInstagram size={24} />
+  </a>
+</SocialIcon>
+
             </Box>
           </StyledPaper>
         </Grid>

@@ -121,27 +121,23 @@ export default function Footer() {
           {/* Links */}
           <h6 className="text-uppercase fw-bold mb-4">Products</h6>
           <p>
-            <a href="./index.html" className="text-reset">
+            <a href="/home" className="text-reset">
               Home
             </a>
           </p>
           <p>
-            <a href="./menu.html" className="text-reset">
+            <a href="./menu" className="text-reset">
               Menu
             </a>
           </p>
+      
           <p>
-            <a href="/HTML/specials.html" className="text-reset">
-              Specails
+            <a href="/about-us" className="text-reset">
+              About Us
             </a>
           </p>
           <p>
-            <a href="/HTML/vision.html" className="text-reset">
-              Our Vision
-            </a>
-          </p>
-          <p>
-            <a href="/HTML/contact.html" className="text-reset">
+            <a href="/HTML/contactus" className="text-reset">
               Contact Us
             </a>
           </p>
@@ -152,27 +148,24 @@ export default function Footer() {
           {/* Links */}
           <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
           <p>
-            <a href="./index.html" className="text-reset">
+            <a href="/home" className="text-reset">
               Home
             </a>
           </p>
           <p>
-            <a href="./menu.html" className="text-reset">
+            <a href="./menu" className="text-reset">
               Menu
             </a>
           </p>
+          
           <p>
-            <a href="/HTML/specials.html" className="text-reset">
-              Specails
+            <a href="/about-us" className="text-reset">
+              About Us
             </a>
           </p>
+          
           <p>
-            <a href="/HTML/vision.html" className="text-reset">
-              Our Vision
-            </a>
-          </p>
-          <p>
-            <a href="/HTML/contact.html" className="text-reset">
+            <a href="/contactus" className="text-reset">
               Contact Us
             </a>
           </p>
