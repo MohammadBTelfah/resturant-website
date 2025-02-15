@@ -1,148 +1,225 @@
-import React, { useState } from "react";
-import gg from '../../component/assesst/gg.png';
-import './home.css';
-import Carousel from 'react-bootstrap-carousel'; 
+import React, { useState, useEffect } from "react";
+import { Box, Typography, Button, Rating, Accordion, AccordionSummary, AccordionDetails, Container, Card, CardContent, IconButton } from "@mui/material";
+import { Link } from "react-router-dom";
+import { styled } from "@mui/system";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { SiGoogle } from "react-icons/si";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
+const StyledHeroSection = styled(Box)(({ theme }) => ({
+  minHeight: "100vh",
+  background: "#000000",
+  color: "#FFFFFF",
+  padding: "2rem",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  textAlign: "center",
+}));
 
-export default function Home() {
-    const [activeIndex, setActiveIndex] = useState(null);
+const StyledButton = styled(Button)(({ theme }) => ({
+  backgroundColor: "#FFA500",
+  color: "#FFFFFF",
+  padding: "1rem 3rem",
+  fontSize: "1.2rem",
+  marginTop: "2rem",
+  "&:hover": {
+    backgroundColor: "#FFB733",
+    transform: "scale(1.05)",
+  },
+}));
 
-    const toggleFaq = (index) => {
-        setActiveIndex(activeIndex === index ? null : index);
-    };
+const SliderContainer = styled(Box)(({ theme }) => ({
+  width: "100%",
+  position: "relative",
+  marginTop: "4rem",
+}));
 
-    const faqData = [
-        { question: "How do I place an order for delivery?", answer: "Placing an order is easy! Visit our website, browse our menu, add items to your cart, and proceed to checkout. You can also call us directly to place your order." },
-        { question: "Is there a delivery fee?", answer: "Yes, a small delivery fee may apply depending on your location." },
-        { question: "How can I track my order?", answer: "You will receive a tracking link via email once your order is dispatched." },
-    ];
+const burgerImages = [
+  "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
+  "https://images.unsplash.com/photo-1586816001966-79b736744398",
+  "https://images.unsplash.com/photo-1551615593-ef5fe247e8f7",
+];
 
-    const burgerImages = [
-        'https://fireflyburgers.com/wp-content/uploads/2024/03/kamakazi.png',
-        'https://fireflyburgers.com/wp-content/uploads/2023/09/%D8%B3%D8%A8%D8%A4.png',
-        'https://fireflyburgers.com/wp-content/uploads/2023/10/MYSTIC.png',
-        'https://fireflyburgers.com/wp-content/uploads/2023/10/keto-beef.png'
-    ];
+const testimonials = [
+  {
+    name: "John Doe",
+    quote: "Best burgers I've ever tasted! The quality is unmatched.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+  },
+  {
+    name: "Jane Smith",
+    quote: "Amazing atmosphere and incredible service. A must-visit!",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+  },
+];
 
-    return (
-        <>
-            <div className="hero-section">
-                <div className="overlay">
-                    <div className="content">
-                        <h1 id="hs">
-                            MOT FOOD <span className="highlight">DELIVERED TO YOUR DOORSTEP</span>
-                        </h1>
-                        <p style={{ color: "white" }}>
-                            Experience the flavors of our signature dishes, made with love and
-                            fresh ingredients without leaving your doorstep.
-                        </p>
-                        <div className="buttons">
-                        <a href="./menu">
-                 <button className="order-now">Order Now</button>
-            </a>
-            <a href="./menu">
-             <button className="see-menu">See Menu</button>
-    </a>
+const faqs = [
+  {
+    question: "What are your opening hours?",
+    answer: "We're open daily from 11:00 AM to 10:00 PM",
+  },
+  {
+    question: "Do you offer vegetarian options?",
+    answer: "Yes, we have a variety of vegetarian burgers and sides available.",
+  },
+  {
+    question: "Is parking available?",
+    answer: "We offer free parking for all our customers in our dedicated lot.",
+  },
+];
 
-                        </div>
-                        <div className="rating">
-                            <img src={gg} alt="Google Rating" />
-                            <span style={{ color: "white" }}>
-                                4.8 <span style={{ color: "orangered" }}>★★★★★</span>
-                            </span>
-                    </div>
-                </div>
-            </div>
+const M0TRestaurant = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-            <div className="tcontainer">
-                <h1 id="tts">
-                    Who We Are &amp; <span style={{ color: "orangered" }}>What We Do</span>
-                </h1>
-                <p id="mnb">
-                    MOT FOOD offers a vibrant and delicious culinary experience, showcasing
-                    the freshest ingredients and innovative cooking techniques. We're
-                    committed to sourcing locally whenever possible, ensuring the highest
-                    quality in every dish.
-                </p>
-                <div className="image-slider"> {/* Add a container for the slider */}
-                    <Carousel
-                        showArrows={true} // Show navigation arrows
-                        showStatus={false} // Hide the status indicator (e.g., 1 of 3)
-                        infiniteLoop={true} // Loop the carousel infinitely
-                        autoPlay={true} // Automatically play the carousel
-                        interval={3000} // Set the auto-play interval (in milliseconds)
-                        dynamicHeight={false} // Important: set this to false to prevent layout issues
-                        emulateTouch={true} // Enable touch support for mobile
-                        swipeable={true}
-                        centerMode={true}
-                        centerSlidePercentage={33}
-                    >
-                        {burgerImages.map((image, index) => (
-                            <div key={index}>
-                                <img src={image} alt={`Burger ${index + 1}`} style={{width: 'auto', height: 'auto'}}/>
-                            </div>
-                        ))}
-                    </Carousel>
-                </div>
-            </div>
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
-                <div className="image-grid">
-                    <img src="https://fireflyburgers.com/wp-content/uploads/2024/03/kamakazi.png" alt="Image 1" />
-                    <img src="https://fireflyburgers.com/wp-content/uploads/2023/09/%D8%B3%D8%A8%D8%A4.png" alt="Image 2" />
-                    <img src="https://fireflyburgers.com/wp-content/uploads/2023/10/MYSTIC.png" alt="Image 3" />
-                    <img src="https://fireflyburgers.com/wp-content/uploads/2023/10/keto-beef.png" alt="Image 4" />
-                </div>
-            </div>
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % burgerImages.length);
+  };
 
-            <div className="mcontainer">
-                <h1 style={{ color: "orangered" }}>
-                    <span style={{ color: "white" }}>What</span> Customers Say
-                </h1>
-                <p id="moha">Read testimonials from our satisfied customers</p>
-                <div className="testimonials">
-                    <div className="testimonial">
-                        <p style={{ color: "black" }}>
-                            "The food here is absolutely amazing! I keep coming back for more.
-                            Highly recommended!"
-                        </p>
-                        <div className="testimonial-author">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Outdoors-man-portrait_%28cropped%29.jpg/1200px-Outdoors-man-portrait_%28cropped%29.jpg" alt="Jane Doe" />
-                            <div className="testimonial-info">
-                                <h3>Jane Doe</h3>
-                                <p>Food Critic</p>
-                            </div>
-                        </div>
-                        <div className="rating">
-                            <span>5.0</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                            <span className="star">★</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + burgerImages.length) % burgerImages.length);
+  };
 
-            {/* FAQ Section */}
-            <div className="fcontainer">
-                <h1 style={{ color: "white" }} id="h1id">
-                    Frequently Asked Questions &amp; Answers
-                </h1>
-                {faqData.map((item, index) => (
-                    <div key={index} className={`faq-item ${activeIndex === index ? "active" : ""}`}>
-                        <div className="faq-question" onClick={() => toggleFaq(index)}>
-                            <h2 style={{ color: "white" }}>{item.question}</h2>
-                            <span className="faq-icon">{activeIndex === index ? "−" : "+"}</span>
-                        </div>
-                        {activeIndex === index && (
-                            <div className="faq-answer">
-                                <p style={{ color: "white" }}>{item.answer}</p>
-                            </div>
-                        )}
-                    </div>
-                ))}
-            </div>
-        </>
-    );
-}
+  return (
+    <Box sx={{ backgroundColor: "#000000", minHeight: "100vh" }}>
+      <StyledHeroSection>
+        <Typography variant="h1" sx={{ color: "#FFA500", fontWeight: "bold", mb: 2 }}>
+          M0T Burgers
+        </Typography>
+        <Typography variant="h4" sx={{ mb: 3 }}>
+          Crafting Perfect Burgers Since 2010
+        </Typography>
+        <Typography variant="h6" sx={{ mb: 4 }}>
+          Fresh Ingredients | Signature Sauces | Artisanal Buns
+        </Typography>
+        <StyledButton component={Link} to="/menu" variant="contained">
+      Order Now
+    </StyledButton>
+
+        <Box sx={{ display: "flex", alignItems: "center", mt: 4 }}>
+          <SiGoogle size={30} color="#FFA500" />
+          <Rating value={4.8} readOnly precision={0.1} sx={{ ml: 1, color: "#FFA500" }} />
+          <Typography sx={{ ml: 1 }}>(2,453 reviews)</Typography>
+        </Box>
+      </StyledHeroSection>
+
+      <SliderContainer>
+        <Box sx={{ position: "relative", overflow: "hidden", height: "500px" }}>
+          <Box
+            component="img"
+            src={burgerImages[currentSlide]}
+            alt="Burger"
+            sx={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              transition: "opacity 0.5s",
+            }}
+          />
+          <IconButton
+            onClick={prevSlide}
+            sx={{ position: "absolute", left: 20, top: "50%", color: "#FFA500" }}
+          >
+            <FiChevronLeft size={40} />
+          </IconButton>
+          <IconButton
+            onClick={nextSlide}
+            sx={{ position: "absolute", right: 20, top: "50%", color: "#FFA500" }}
+          >
+            <FiChevronRight size={40} />
+          </IconButton>
+        </Box>
+      </SliderContainer>
+
+      <Container sx={{ py: 8 }}>
+        <Typography variant="h3" sx={{ color: "#FFA500", textAlign: "center", mb: 4 }}>
+          What Our Customers Say
+        </Typography>
+        <Card sx={{ backgroundColor: "#111111", color: "#FFFFFF", mb: 4, position: "relative" }}>
+          <CardContent sx={{ textAlign: "center" }}>
+            <Typography variant="h6" sx={{ mb: 2 }}>
+              {testimonials[currentTestimonial].quote}
+            </Typography>
+            <Box
+              component="img"
+              src={testimonials[currentTestimonial].image}
+              alt={testimonials[currentTestimonial].name}
+              sx={{ width: 80, height: 80, borderRadius: "50%", mb: 2 }}
+            />
+            <Typography color="#FFA500">
+              {testimonials[currentTestimonial].name}
+            </Typography>
+            <Box sx={{ mt: 2 }}>
+              <IconButton
+                onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                sx={{ color: "#FFA500", mr: 2 }}
+              >
+                <FiChevronLeft size={24} />
+              </IconButton>
+              <IconButton
+                onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
+                sx={{ color: "#FFA500" }}
+              >
+                <FiChevronRight size={24} />
+              </IconButton>
+            </Box>
+          </CardContent>
+        </Card>
+
+        <Typography variant="h3" sx={{ color: "#FFA500", textAlign: "center", mb: 4 }}>
+          Frequently Asked Questions
+        </Typography>
+        {faqs.map((faq, index) => (
+          <Accordion
+            key={index}
+            sx={{
+              backgroundColor: "#111111",
+              color: "#FFFFFF",
+              mb: 2,
+              "&:before": { display: "none" },
+            }}
+          >
+            <AccordionSummary
+              expandIcon={<FiChevronRight color="#FFA500" />}
+              sx={{ borderBottom: "1px solid #333" }}
+            >
+              <Typography variant="h6">{faq.question}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography sx={{ color: "#CCCCCC" }}>{faq.answer}</Typography>
+            </AccordionDetails>
+          </Accordion>
+        ))}
+      </Container>
+
+      <Box sx={{ mt: 8, textAlign: "center", color: "#FFFFFF" }}>
+        <Typography variant="h3" sx={{ color: "#FFA500", mb: 4 }}>
+          Find Us
+        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 2 }}>
+          <FaMapMarkerAlt size={24} color="#FFA500" />
+          <Typography variant="h6" sx={{ ml: 2 }}>
+            123 Burger Street, Foodie District
+          </Typography>
+        </Box>
+        <Typography variant="body1" sx={{ color: "#CCCCCC" }}>
+          Open Daily: 11:00 AM - 10:00 PM
+        </Typography>
+        <Typography variant="body1" sx={{ color: "#CCCCCC", mt: 1 }}>
+          Phone: (555) 123-4567
+        </Typography>
+      </Box>
+    </Box>
+  );
+};
+
+export default M0TRestaurant;
