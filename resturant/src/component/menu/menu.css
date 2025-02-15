@@ -1,0 +1,157 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+}
+
+.menu-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #000;
+    border-radius: 10px;
+    max-width: 1500px;
+    margin: 50px auto;
+}
+
+.menu-section h1 {
+    font-size: 3em;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثيرات انتقالية */
+}
+.menu-item:hover {
+    transform: translateY(-5px); /* رفع العنصر قليلاً عند التمرير */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* تغيير الظل عند التمرير */
+}
+.add-to-cart, .btn {
+    transition: background-color 0.3s ease, transform 0.2s ease; /* إضافة تأثيرات انتقالية */
+}
+.add-to-cart:hover, .btn:hover {
+    background-color: #e76e1b;
+    transform: scale(1.05); /* تكبير العنصر قليلاً عند التمرير */
+}
+
+
+.item-det {
+    text-align: left;
+    margin-right: 40px; /* Adjust as needed */
+    flex: 1; /* Allows the text content to take up available space */
+}
+
+.menu-item h2 {
+    font-size: 2em;
+    color: #D4AF37;
+    margin: 10px 0;
+}
+
+.menu-item p {
+    font-size: 1.1em;
+    color: white;
+}
+
+.price {
+    display: block;
+    font-size: 1.5em;
+    color: #fa8231;
+    margin: 10px 0;
+}
+
+.menu-item img {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 50px; /* Adjust as needed */
+}
+
+.add-to-cart {
+    margin-top: 15px;
+    background-color: #fa8231;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    display: inline-block;
+    min-width: 120px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #e76e1b; /* Use the same hover color */
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* or center, depending on your preference */
+    gap: 20px; /* Consistent gap */
+    flex-wrap: wrap;
+    margin-bottom: 20px; /* Consistent margin */
+}
+
+.menu-it {
+    text-align: center;
+    width: 350px; /* Consistent width */
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Distribute space between elements */
+    height: 540px; /* Consistent height */
+}
+
+.menu-it img {
+    width: 100%; /* Image takes full width of container */
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px; /* Add some space below the image */
+}
+
+.menu-it h3 {
+    text-transform: uppercase;
+    margin: 10px 0;
+    font-size: 30px;
+    text-align: center;
+    color: #D4AF37;
+    font-weight: bold;
+}
+
+.btn {
+    margin-top: 25px;
+    background-color: orangered;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    display: inline-block;
+    text-align: center;
+    height: auto; /* Let the height be determined by content */
+}
+
+.btn + .btn {
+    margin-left: 15px;
+}
+
+.btn:hover {
+    background-color: #e76e1b;
+}
