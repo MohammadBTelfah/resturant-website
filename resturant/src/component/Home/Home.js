@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import gg from '../../component/assesst/gg.png';
 import './home.css';
+import Carousel from 'react-bootstrap-carousel'; 
+
 
 export default function Home() {
     const [activeIndex, setActiveIndex] = useState(null);
@@ -13,6 +15,13 @@ export default function Home() {
         { question: "How do I place an order for delivery?", answer: "Placing an order is easy! Visit our website, browse our menu, add items to your cart, and proceed to checkout. You can also call us directly to place your order." },
         { question: "Is there a delivery fee?", answer: "Yes, a small delivery fee may apply depending on your location." },
         { question: "How can I track my order?", answer: "You will receive a tracking link via email once your order is dispatched." },
+    ];
+
+    const burgerImages = [
+        'https://fireflyburgers.com/wp-content/uploads/2024/03/kamakazi.png',
+        'https://fireflyburgers.com/wp-content/uploads/2023/09/%D8%B3%D8%A8%D8%A4.png',
+        'https://fireflyburgers.com/wp-content/uploads/2023/10/MYSTIC.png',
+        'https://fireflyburgers.com/wp-content/uploads/2023/10/keto-beef.png'
     ];
 
     return (
@@ -28,19 +37,19 @@ export default function Home() {
                             fresh ingredients without leaving your doorstep.
                         </p>
                         <div className="buttons">
-                            <a href="./menu.html">
-                                <button className="order-now">Order Now</button>
-                            </a>
-                            <a href="./menu.html">
-                                <button className="see-menu">See Menu</button>
-                            </a>
+                        <a href="./menu">
+                 <button className="order-now">Order Now</button>
+            </a>
+            <a href="./menu">
+             <button className="see-menu">See Menu</button>
+    </a>
+
                         </div>
                         <div className="rating">
                             <img src={gg} alt="Google Rating" />
                             <span style={{ color: "white" }}>
                                 4.8 <span style={{ color: "orangered" }}>★★★★★</span>
                             </span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -55,6 +64,28 @@ export default function Home() {
                     committed to sourcing locally whenever possible, ensuring the highest
                     quality in every dish.
                 </p>
+                <div className="image-slider"> {/* Add a container for the slider */}
+                    <Carousel
+                        showArrows={true} // Show navigation arrows
+                        showStatus={false} // Hide the status indicator (e.g., 1 of 3)
+                        infiniteLoop={true} // Loop the carousel infinitely
+                        autoPlay={true} // Automatically play the carousel
+                        interval={3000} // Set the auto-play interval (in milliseconds)
+                        dynamicHeight={false} // Important: set this to false to prevent layout issues
+                        emulateTouch={true} // Enable touch support for mobile
+                        swipeable={true}
+                        centerMode={true}
+                        centerSlidePercentage={33}
+                    >
+                        {burgerImages.map((image, index) => (
+                            <div key={index}>
+                                <img src={image} alt={`Burger ${index + 1}`} style={{width: 'auto', height: 'auto'}}/>
+                            </div>
+                        ))}
+                    </Carousel>
+                </div>
+            </div>
+
                 <div className="image-grid">
                     <img src="https://fireflyburgers.com/wp-content/uploads/2024/03/kamakazi.png" alt="Image 1" />
                     <img src="https://fireflyburgers.com/wp-content/uploads/2023/09/%D8%B3%D8%A8%D8%A4.png" alt="Image 2" />

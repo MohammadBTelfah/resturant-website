@@ -1,14 +1,11 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import './menu.css';
-
-
-
-
+import { useCart } from "../CartContext/CartContext";
 
 export default function Menu() {
+  const { addToCart } = useCart();
 
-    const [menuItems, setMenuItems] = useState([
+ const [menuItems, setMenuItems] = useState([
         {
           name: 'SMOKY SUMMIT BURGER',
           description:
@@ -108,41 +105,54 @@ export default function Menu() {
           image: 'https://fireflyburgers.com/wp-content/uploads/2024/03/15.png',
         },
       ]);
-    
 
-      
-      return(
-        <>
-     <div className="menu-section">
-      <h1>MENU</h1>
-      {menuItems.map((item) => (
-        <div className="menu-item" key={item.name}>
-          <div className="item-det">
-            <h2>{item.name}</h2>
-            <p>{item.description}</p>
-            <span className="price">{item.price}</span>
-            <button className="add-to-cart">Add to Cart</button>
-          </div>
-          <img src={item.image} alt={item.name} />
-        </div>
-      ))}
-            <h1>Sides</h1> {/* Added a heading for Sides */}
-      <div className="container"> {/* Added a container for sides */}
-        {sideItems.map((item) => (
-          <div className="menu-it" key={item.name}>
+  const handleAddToCart = (item) => {
+    addToCart(item); // Call the addToCart function from CartContext
+  };
+
+  return (
+    <>
+      <div className="menu-section">
+        <h1>MENU</h1>
+        {menuItems.map((item) => (
+          <div className="menu-item" key={item.name}> {/* Use a more robust key if possible (like an ID) */}
+            <div className="item-det">
+              <h2>{item.name}</h2>
+              <p>{item.description}</p>
+              <span className="price">{item.price}</span>
+              <button 
+                className="add-to-cart" 
+                onClick={() => handleAddToCart(item)} // Pass the item to the handler
+              >
+                Add to Cart
+              </button>
+            </div>
             <img src={item.image} alt={item.name} />
-            <h3>{item.name}</h3>
-            <span className="price">{item.price}</span>
-            <button className="add-to-cart">Add to Cart</button>
           </div>
         ))}
-      </div>
 
-      <div className="order-buttons">
-        <button className="btn">Order Now</button>
-        <button className="btn">Download Menu</button>
+        <h1>Sides</h1>
+        <div className="container">
+          {sideItems.map((item) => (
+            <div className="menu-it" key={item.name}> {/* Use a more robust key if possible */}
+              <img src={item.image} alt={item.name} />
+              <h3>{item.name}</h3>
+              <span className="price">{item.price}</span>
+              <button 
+                className="add-to-cart" 
+                onClick={() => handleAddToCart(item)} // Pass the item to the handler
+              >
+                Add to Cart
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <div className="order-buttons">
+          <button className="btn">Order Now</button>
+          <button className="btn">Download Menu</button>
+        </div>
       </div>
-    </div>
-        </>
-      )
+    </>
+  );
 }
