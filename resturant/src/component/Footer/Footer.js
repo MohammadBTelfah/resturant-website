@@ -245,9 +245,9 @@ export default function Footer() {
     className="text-center p-4"
     style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
   >
-    © 2021 Copyright:
+    © 2025 Copyright:
     <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
-      MohammedTelfah
+       MohammedTelfah
     </a>
   </div>
   {/* Copyright */}

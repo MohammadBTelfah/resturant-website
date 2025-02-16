@@ -24,30 +24,33 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Ensures content wraps on smaller screens */
     margin-bottom: 30px;
     padding: 20px;
     border-radius: 10px;
     border: 2px solid white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* إضافة تأثيرات انتقالية */
-}
-.menu-item:hover {
-    transform: translateY(-5px); /* رفع العنصر قليلاً عند التمرير */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* تغيير الظل عند التمرير */
-}
-.add-to-cart, .btn {
-    transition: background-color 0.3s ease, transform 0.2s ease; /* إضافة تأثيرات انتقالية */
-}
-.add-to-cart:hover, .btn:hover {
-    background-color: #e76e1b;
-    transform: scale(1.05); /* تكبير العنصر قليلاً عند التمرير */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.add-to-cart, .btn {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-cart:hover, .btn:hover {
+    background-color: #e76e1b;
+    transform: scale(1.05);
+}
 
 .item-det {
     text-align: left;
-    margin-right: 40px; /* Adjust as needed */
-    flex: 1; /* Allows the text content to take up available space */
+    flex: 1;
+    margin-right: 40px;
 }
 
 .menu-item h2 {
@@ -72,7 +75,7 @@ body {
     width: 400px;
     height: auto;
     border-radius: 10px;
-    margin-right: 50px; /* Adjust as needed */
+    margin-right: 50px;
 }
 
 .add-to-cart {
@@ -87,26 +90,20 @@ body {
     display: inline-block;
     min-width: 120px;
     text-align: center;
-    transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
-.add-to-cart:hover {
-    background-color: #e76e1b; /* Use the same hover color */
-}
-
 
 .container {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* or center, depending on your preference */
-    gap: 20px; /* Consistent gap */
+    align-items: flex-start;
+    gap: 20px;
     flex-wrap: wrap;
-    margin-bottom: 20px; /* Consistent margin */
+    margin-bottom: 20px;
 }
 
 .menu-it {
     text-align: center;
-    width: 350px; /* Consistent width */
+    width: 350px;
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 10px;
@@ -114,15 +111,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* Distribute space between elements */
-    height: 540px; /* Consistent height */
+    justify-content: space-between;
+    height: 540px;
 }
 
 .menu-it img {
-    width: 100%; /* Image takes full width of container */
+    width: 100%;
     height: auto;
     border-radius: 10px;
-    margin-bottom: 10px; /* Add some space below the image */
+    margin-bottom: 10px;
 }
 
 .menu-it h3 {
@@ -145,7 +142,6 @@ body {
     font-size: 1em;
     display: inline-block;
     text-align: center;
-    height: auto; /* Let the height be determined by content */
 }
 
 .btn + .btn {
@@ -154,4 +150,87 @@ body {
 
 .btn:hover {
     background-color: #e76e1b;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .menu-item {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .menu-item img {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .item-det {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-section h1 {
+        font-size: 2.5em;
+    }
+
+    .menu-item {
+        padding: 15px;
+    }
+
+    .menu-item h2 {
+        font-size: 1.8em;
+    }
+
+    .menu-item p {
+        font-size: 1em;
+    }
+
+    .price {
+        font-size: 1.3em;
+    }
+
+    .menu-it {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-section {
+        padding: 30px 15px;
+    }
+
+    .menu-section h1 {
+        font-size: 2em;
+    }
+
+    .menu-item {
+        padding: 10px;
+    }
+
+    .menu-item h2 {
+        font-size: 1.5em;
+    }
+
+    .menu-item p {
+        font-size: 0.9em;
+    }
+
+    .price {
+        font-size: 1.2em;
+    }
+
+    .menu-it {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .btn {
+        width: 100%;
+    }
 }

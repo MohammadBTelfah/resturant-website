@@ -122,15 +122,14 @@ const AboutUs = () => {
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <FaMapMarkerAlt size={24} style={{ marginRight: "1rem" }} />
               <Typography variant="h6">
-                123 Burger Street, University District, Irbid, Jordan
-              </Typography>
+              Irbid Aydoun street Al-Anduls              </Typography>
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <FaPhone size={24} style={{ marginRight: "1rem" }} />
               <Typography variant="h6">
-                (555) 123-4567
+                (+962) 772572078
               </Typography>
             </Box>
           </Grid>
