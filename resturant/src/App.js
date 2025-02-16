@@ -8,8 +8,6 @@ import ContactUs from "./component/Contactus/Contactus";
 import AboutUs from "./component/About/about-us";
 
 
-
-
 function App() {
     return (
         
@@ -19,14 +17,11 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/menu" element={<Menu />} />
                 <Route path="/about-us" element={<AboutUs />} />
-
-                <Route path="/contactus" element={<ContactUs/>} />
-                
+                <Route path="/contactus" element={<ContactUs/>} />                         
 
             </Routes>
             <Footer />
         </Router>
-    
 
     );
 }
