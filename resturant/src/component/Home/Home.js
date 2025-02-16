@@ -56,6 +56,11 @@ const testimonials = [
     quote: "Amazing atmosphere and incredible service. A must-visit!",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
   },
+  {
+    name: "Mohammed Telfah",
+    quote: "Amazing Resturant and incredible service. you should vist it !",
+    image: "https://scontent.famm11-1.fna.fbcdn.net/v/t39.30808-6/434036733_2426139024244661_1131875076272113628_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=wrzzpCqB_3MQ7kNvgEmAIbT&_nc_oc=AdgX0E9dMtFlKfhq2FUZ2uMF_zHJmsTO9GcfRCIJ9LHyrAlD4bsFo8FtxH5FsGzr3teWLYMiTsVkZL8Ya7_xO5cn&_nc_zt=23&_nc_ht=scontent.famm11-1.fna&_nc_gid=A-aIGHtctRleCDBXcvdlIT3&oh=00_AYBXaYRuj6Wz9eMSWtoL5rmCkxFFMebpqUtsfpmfjJp5Zw&oe=67B7188C",
+  },
 ];
 
 const faqs = [

@@ -41,7 +41,7 @@ const galleryImages = [
 
 const locationUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106669.70899415445!2d35.81749955820313!3d32.55613590000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c76916dac0453%3A0x5416e114aa01a40f!2sIrbid!5e0!3m2!1sen!2sjo!4v1659632337707!5w!3h370";
 
-const AboutUs = () => {
+export default function AboutUs() {
   return (
     <StyledContainer maxWidth={false}>
       <Box sx={{ textAlign: "center", mb: 8 }}>
@@ -57,7 +57,7 @@ const AboutUs = () => {
         <Typography variant="h3" sx={{ mb: 4, color: "#ffa726" }}>
           Our Burger Journey
         </Typography>
-        <Typography variant="body1" sx={{ fontSize: "1.2rem", lineHeight: 1.8, color: 'white'}}>
+        <Typography variant="body1" sx={{ fontSize: "1.2rem", lineHeight: 1.8, color: "white" }}>
           At M0T, we believe in the artistry of burger crafting. Each burger tells a story of passion, precision, and dedication to culinary excellence. Since our establishment, we've been on a mission to redefine the burger experience, combining traditional techniques with innovative flavors.
         </Typography>
       </Box>
@@ -121,24 +121,19 @@ const AboutUs = () => {
           <Grid item xs={12} md={4}>
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <FaMapMarkerAlt size={24} style={{ marginRight: "1rem" }} />
-              <Typography variant="h6">
-              Irbid Aydoun street Al-Anduls              </Typography>
+              <Typography variant="h6">Irbid Aydoun street Al-Anduls</Typography>
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <FaPhone size={24} style={{ marginRight: "1rem" }} />
-              <Typography variant="h6">
-                (+962) 772572078
-              </Typography>
+              <Typography variant="h6">(+962) 772572078</Typography>
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
               <FaClock size={24} style={{ marginRight: "1rem" }} />
-              <Typography variant="h6">
-                Mon-Sun: 11:00 AM - 10:00 PM
-              </Typography>
+              <Typography variant="h6">Mon-Sun: 11:00 AM - 10:00 PM</Typography>
             </Box>
           </Grid>
           <Grid item xs={12} sx={{ mt: 4 }}>
@@ -159,6 +154,4 @@ const AboutUs = () => {
       </Box>
     </StyledContainer>
   );
-};
-
-export default AboutUs;
+}
